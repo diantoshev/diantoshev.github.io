@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фантазия Дюнери - кой разбира, тук се спира</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header__container side-margin">
+        <div class="logo__container side-margin">
+          <a href="#home">
+            <img src="./assets/images/logo.jpeg" alt="Fantaziq duner" />
+          </a>
+        </div>
+        <div class="menu-link_container">
+          <a href="#home" class="menu-link nav-btn">МЕНЮ</a>
+        </div>
+        <div class="cart-icon_container side-margin">
+          <span id="cart-item-count">0</span>
+          <a id= cart-btn href=""
+            ><img src="./assets/images/cart.jpeg" alt="Cart button"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="home" class="main-section">
+        <div class="section__container side-margin">
+          <div class="search__container">
+            <label for="search-form" class="side-margin"
+              ><strong>Търсене на продукт:</strong></label
+            >
+            <input
+              name="search-form"
+              id="search-form"
+              type="text"
+              class="search-form side-margin"
+            />
+          </div>
+          <h2>Нашето меню:</h2>
+          <div id="home-results" class="results"></div>
+        </div>
+      </section>
+      <section id="cart" class="main-section">
+        <div class="section__container side-margin">
+          <h2>Вашата количка:</h2>
+          <div id="cart-results" class="results">
+          </div>
+          <div class="order-history_container">
+          <h2>История на поръчките:</h2>
+          <table id="order-history">
+            <thead>
+              <th>Дата</th>
+              <th>Адрес</th>
+              <th>Продукти</th>
+              <th>Обща сума</th>
+            </thead>
+            <tbody id="order-history-print">
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="order" class="main-section">
+        <h2>Вашата поръчка:</h2>
+        <div class="order-form__container">
+          <form action="#cart" class="order-form">
+            <div>
+              <label for="name">Вашите имена:</label>
+              <input type="text" id="name" placeholder="Име Фамилия">
+            </div>
+            <div>
+              <label for="phone">Телефонен номер:</label>
+              <input type="tel" name="phone" id="phone" minlength="10" maxlength="10" placeholder="08XXXXXXXXXX">
+            </div>
+            <div>
+              <label for="address">Адрес:</label>
+              <textarea name="address" id="address-input" cols="30" rows="10" placeholder="Въведете Вашият адрес..."></textarea>
+            </div>
+            <button type="submit" id="send-order">
+              <a href="#cart" id="order-btn-link">Изпрати</a>
+            </button>
+          </form>
+        </div>
+      </section>
+      <section id="register" class="main-section">
+        <h2>Създайте Вашият акаунт</h2>
+        <div class="registration-form__container">
+          <form id="registration-form">
+            <div>
+              <label for="registerUsername">Потребителско име /минимум 6 символа/:</label>
+              <input type="text" name="registerUsername" id="registerUsername" required minlength="6" placeholder="Потребителско име">
+              <div class="form-error" id="username-exists">Потребителското име вече е заето.</div>
+            </div>
+            <div>
+              <label for="registerPassword">Парола /минимум 8 символа/:</label>
+              <input type="password" name="registerPassword" id="registerPassword" required minlength="8" placeholder="Парола">
+            </div>
+            <div>
+              <label for="confirmPassword">Повторете паролата:</label>
+              <input type="password" name="confirmPassword" id="confirmPassword" required minlength="8" placeholder="Потвърди паролата">
+              <div class="form-error" id="password-mismatch">Въведените пароли не са еднакви.</div>
+              <div class="form-error" id="short-password">Въведените пароли трябва да са най-малко 8 символа.</div>
+            </div>
+            <button disabled id="register-btn" class="disabled-btn" type="submit">Регистрация</button>
+            <div>
+              <p>Вече имате акаунт? <a href="#login"> Влезте в профила си --> </a></p>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="login" class="main-section">
+        <div class="login-form__container">
+          <form id="login-form">
+            <div>
+              <label for="loginUsername">Потребителско име /минимум 6 символа/:</label>
+              <input type="text" name="loginUsername" id="loginUsername" required minlength="6" placeholder="Потребителско име">
+            </div>
+            <div>
+              <label for="loginPassword">Парола /минимум 8 символа/:</label>
+              <input type="password" name="loginPassword" id="loginPassword" required minlength="8" placeholder="Парола">
+            </div>
+              <div class="form-error" id="wrongCredentials">Грешни акаунт/парола</div>
+            <button id="login-btn" type="submit">Влез в акаунта си!</button>
+            <div>
+              <p>Нямате акаунт? <a href="#register"> Създайте акаунт --> </a></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/scripts/constants.js"></script>
+    <script src="./assets/data/data.js"></script>
+    <script src="./assets/scripts/model/ProductManager.js"></script>
+    <script src="./assets/scripts/model/Card.js"></script>
+    <script src="./assets/scripts/model/User.js"></script>
+    <script src="./assets/scripts/model/UserManager.js"></script>
+    <script src="./assets/scripts/controllers/registerController.js"></script>
+    <script src="./assets/scripts/controllers/loginController.js"></script>
+    <script src="./assets/scripts/controllers/app.js"></script>
+  </body>
+</html>
