@@ -1,7 +1,7 @@
 let productsManager = new ProductManager();
+let userManager = new UserManager();
 let user = new User();
 let activeUser = {};
-let userManager = new UserManager();
 
 productsManager.loadCards(DATA);
 let resultsPage = document.getElementById("home-results");
