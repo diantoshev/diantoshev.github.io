@@ -4,7 +4,6 @@ let username = document.getElementById("loginUsername");
 let loginButton = document.getElementById("login-btn");
 
 loginForm.addEventListener("submit", function (e) {
-  debugger;
   e.preventDefault();
   if (userManager.validateCredentials(username.value, password.value)) {
     userManager.users.map((user) => {
